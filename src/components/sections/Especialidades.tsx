@@ -9,19 +9,16 @@ const especialidades = [
     num: "01",
     title: "Acupuntura Médica",
     desc: "Tratamento de dor crônica, ansiedade, distúrbios do sono e condições funcionais. Pós-graduação de 2 anos exclusiva para médicos, concluída em 2024.",
-    tag: "RQE CFM",
   },
   {
     num: "02",
     title: "Neuromodulação",
     desc: "Técnicas que atuam no sistema nervoso para tratar dor, desequilíbrios emocionais e condições que conectam o físico e o emocional. Nem toda dor começa onde ela aparece.",
-    tag: "Pós-graduação em curso",
   },
   {
     num: "03",
-    title: "Atendimento pediátrico",
-    desc: "Com 30 anos de experiência em pediatria e o recurso da Laseracupuntura, crianças e bebês têm acesso a um tratamento seguro, indolor e não invasivo.",
-    tag: "RQE Pediatria",
+    title: "Laseracupuntura",
+    desc: "Com o recurso da Laseracupuntura, crianças e bebês têm acesso a um tratamento seguro, indolor e não invasivo.",
   },
 ];
 
@@ -32,7 +29,6 @@ export function Especialidades() {
       className="py-16 xs:py-20 md:py-24 xl:py-28 px-5 xs:px-8 md:px-12 xl:px-16 bg-sand-pale"
     >
       <div className="max-w-6xl mx-auto">
-
         <div className="max-w-lg mb-10 xs:mb-12 md:mb-14">
           <p className="eyebrow mb-4 xs:mb-5">O que tratamos</p>
           <h2 className="font-serif text-[32px] xs:text-[36px] md:text-[40px] xl:text-[48px] font-light leading-[1.15] text-ink">
@@ -60,13 +56,9 @@ export function Especialidades() {
               <p className="text-[12px] xs:text-[13px] text-ink-muted leading-[1.75] mb-4 xs:mb-5">
                 {e.desc}
               </p>
-              <span className="inline-block text-[10px] font-medium uppercase tracking-[0.07em] px-3 py-1.5 rounded-full border border-sage/25 text-sage">
-                {e.tag}
-              </span>
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

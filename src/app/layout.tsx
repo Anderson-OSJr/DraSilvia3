@@ -17,7 +17,7 @@ const cormorant = Cormorant_Garamond({
 });
 
 export const metadata: Metadata = {
-  title: "Dra. Sílvia Barreto — Acupuntura Médica e Neuromodulação | Araraquara",
+  title: "Dra. Sílvia Barreto",
   description:
     "Acupuntura Médica, Laseracupuntura e Neuromodulação com base científica e cuidado humanizado. Atendimento presencial em Araraquara/SP. Agende sua consulta.",
   keywords: [
@@ -29,7 +29,8 @@ export const metadata: Metadata = {
     "Dra Sílvia Barreto",
   ],
   openGraph: {
-    title: "Dra. Sílvia Barreto — Acupuntura Médica e Neuromodulação",
+    title:
+      "Dra. Sílvia Barreto — Acupuntura Médica e Neuromodulação | Araraquara",
     description:
       "Cuidado integrativo com base científica. Acupuntura Médica, Laseracupuntura e Neuromodulação em Araraquara/SP.",
     locale: "pt_BR",

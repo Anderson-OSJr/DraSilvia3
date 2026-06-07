@@ -2,7 +2,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Link from "next/link";
+import Image from "next/image";
 import { Menu, X } from "lucide-react";
 
 const links = [
@@ -21,24 +21,29 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Fecha menu ao clicar em um link
   const handleLinkClick = () => setMenuOpen(false);
 
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled || menuOpen
-            ? "bg-cream/95 backdrop-blur-md border-b border-sage-subtle shadow-sm"
-            : "bg-transparent"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-cream/95 backdrop-blur-md border-b border-sage-subtle ${
+          scrolled || menuOpen ? "shadow-sm" : ""
         }`}
       >
-        <div className="max-w-6xl mx-auto px-5 xs:px-6 lg:px-8 h-16 flex items-center justify-between">
-
+        <div className="max-w-6xl mx-auto px-5 xs:px-6 lg:px-8 h-24 flex items-center justify-between">
           {/* Logo */}
-          <span className="font-serif text-[18px] xs:text-[19px] font-semibold text-green-vivid tracking-wide">
-            Dra. Sílvia Barreto
-          </span>
+          <a href="#" className="flex items-center gap-4">
+            <Image
+              src="/logo.png"
+              alt="Logo Dra. Sílvia Barreto"
+              width={40}
+              height={40}
+              className="object-contain"
+            />
+            <span className="font-serif text-[18px] xs:text-[25px] font-semibold text-green-vivid tracking-wide">
+              Dra. Sílvia Barreto
+            </span>
+          </a>
 
           {/* Links desktop — ocultos até lg */}
           <ul className="hidden lg:flex items-center gap-7 list-none">
@@ -52,25 +57,9 @@ export function Navbar() {
                 </a>
               </li>
             ))}
-            <li>
-              <a
-                href="#agendar"
-                className="bg-green-vivid text-white text-[13px] font-medium px-5 py-2 rounded-full hover:bg-green-dark transition-colors"
-              >
-                Agendar consulta
-              </a>
-            </li>
           </ul>
 
-          {/* CTA compacto — visível de md até lg */}
-          <a
-            href="#agendar"
-            className="hidden md:inline-flex lg:hidden items-center bg-green-vivid text-white text-[12px] font-medium px-4 py-2 rounded-full hover:bg-green-dark transition-colors"
-          >
-            Agendar consulta
-          </a>
-
-          {/* Botão hamburger — visível até md */}
+          {/* Botão hamburger — visível até lg */}
           <button
             onClick={() => setMenuOpen((v) => !v)}
             className="lg:hidden p-2 rounded-lg text-ink-muted hover:text-ink hover:bg-sage-pale transition-colors"
@@ -93,13 +82,6 @@ export function Navbar() {
                 {l.label}
               </a>
             ))}
-            <a
-              href="#agendar"
-              onClick={handleLinkClick}
-              className="mt-3 w-full text-center bg-green-vivid text-white text-[13px] font-medium py-3 rounded-full hover:bg-green-dark transition-colors"
-            >
-              Agendar consulta
-            </a>
           </div>
         )}
       </nav>
