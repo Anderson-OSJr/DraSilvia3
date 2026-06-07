@@ -9,7 +9,6 @@ const leadSchema = z.object({
     .string()
     .min(10, "WhatsApp inválido")
     .regex(/^[\d\s\(\)\-\+]+$/, "Formato inválido"),
-  motivo: z.string().min(1, "Selecione o motivo"),
 });
 
 export async function POST(req: NextRequest) {
@@ -19,8 +18,8 @@ export async function POST(req: NextRequest) {
 
     if (!parsed.success) {
       return NextResponse.json(
-        { error: "Dados inválidos", details: parsed.error.flatten() },
-        { status: 400 }
+        { error: "Dados inválidos", details: parsed.error.issues },
+        { status: 400 },
       );
     }
 
@@ -30,7 +29,7 @@ export async function POST(req: NextRequest) {
     console.error("[leads/route] Erro:", error);
     return NextResponse.json(
       { error: "Erro interno. Tente novamente." },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }

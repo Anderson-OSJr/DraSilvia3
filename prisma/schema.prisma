@@ -5,16 +5,13 @@ generator client {
 }
 
 datasource db {
-  provider  = "postgresql"
-  url       = env("POSTGRES_PRISMA_URL")
-  directUrl = env("POSTGRES_URL_NON_POOLING")
+  provider  = "postgresql"  
 }
 
 model Lead {
   id        String   @id @default(cuid())
   nome      String
-  whatsapp  String
-  motivo    String
+  whatsapp  String  
   createdAt DateTime @default(now())
 
   @@map("leads")
