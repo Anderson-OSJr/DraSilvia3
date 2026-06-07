@@ -2,24 +2,28 @@
 // Mobile-first:
 //   base     → coluna única (info em cima, mapa abaixo)
 //   md       → grid 1fr/1fr lado a lado
-//
-// Como obter a URL do embed do Google Maps:
-//   1. Acesse maps.google.com e busque o endereço do consultório
-//   2. Clique em "Compartilhar" > "Incorporar um mapa"
-//   3. Copie apenas o valor do atributo src do <iframe> gerado
-//   4. Cole em GOOGLE_MAPS_EMBED_URL abaixo
+
+import type { ReactNode } from "react";
 
 const GOOGLE_MAPS_EMBED_URL =
-  "https://www.google.com/maps/embed?pb=!1m18!1m12!SUBSTITUA_AQUI";
+  "https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3353.2161334367047!2d-48.176624922012!3d-21.76382794662876!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDQ1JzQ5LjgiUyA0OMKwMTAnMTguMyJX!5e1!3m2!1spt-BR!2sbr!4v1780868987797!5m2!1spt-BR!2sbr";
 
-const WHATSAPP = "16999999999";          // somente números com DDD
-const WHATSAPP_DISPLAY = "(16) 9xxxx-xxxx";
-const ENDERECO_LINHA1 = "Rua [inserir endereço], nº xx";
-const ENDERECO_LINHA2 = "[Bairro] · Araraquara/SP";
+const WHATSAPP = "16999611968";
+const WHATSAPP_DISPLAY = "(16) 99961-1968";
+const ENDERECO_LINHA1 = "Humaniza Espaço Terapêutico";
+const ENDERECO_LINHA2 = "Av. Armando Corrêa de Siqueira, 1104";
+const ENDERECO_LINHA3 = "Vila Harmonia, Araraquara - SP";
 const INSTAGRAM = "@drasilviabarreto.mtc";
 const INSTAGRAM_URL = "https://instagram.com/drasilviabarreto.mtc";
 
-const itens = [
+type Item = {
+  icon: ReactNode;
+  label: string;
+  value: ReactNode;
+  href?: string;
+};
+
+const itens: Item[] = [
   {
     icon: (
       <svg className="w-[18px] h-[18px]" fill="none" stroke="#3A7D44" strokeWidth={1.5} viewBox="0 0 24 24">
@@ -33,9 +37,10 @@ const itens = [
         {ENDERECO_LINHA1}
         <br />
         {ENDERECO_LINHA2}
+        <br />
+        {ENDERECO_LINHA3}
       </>
     ),
-    href: undefined,
   },
   {
     icon: (
@@ -68,13 +73,11 @@ export function Contato() {
       className="py-16 xs:py-20 md:py-24 xl:py-28 px-5 xs:px-8 md:px-12 xl:px-16 bg-sand-pale"
     >
       <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 xl:gap-20 items-start">
-
         {/* Info */}
         <div>
           <p className="eyebrow mb-4 xs:mb-5">Localização</p>
           <h2 className="font-serif text-[32px] xs:text-[36px] md:text-[40px] xl:text-[48px] font-light leading-[1.2] text-ink mb-8 xs:mb-10">
-            Onde nos{" "}
-            <em className="not-italic text-green-vivid">encontrar</em>
+            Onde nos <em className="not-italic text-green-vivid">encontrar</em>
           </h2>
 
           <div className="flex flex-col gap-4 xs:gap-5">
@@ -120,7 +123,6 @@ export function Contato() {
             title="Localização do consultório da Dra. Sílvia Barreto"
           />
         </div>
-
       </div>
     </section>
   );
