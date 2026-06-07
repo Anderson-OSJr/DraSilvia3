@@ -9,7 +9,7 @@ import Image from "next/image";
 
 export function Hero() {
   return (
-    <section className="min-h-screen pt-16 flex flex-col md:grid md:grid-cols-2">
+    <section className="min-h-screen pt-16 flex flex-col md:grid md:grid-cols-2 max-w-6xl mx-auto">
       {/* Direita (foto) — vem PRIMEIRO no mobile (ordem visual) */}
       <div className="order-1 md:order-2 bg-sage-pale flex flex-col items-center justify-center px-6 py-12 xs:py-14 md:py-20 gap-6 md:gap-8 md:min-h-[calc(100vh-4rem)]">
         <div className="relative w-[200px] h-[260px] xs:w-[230px] xs:h-[300px] md:w-[260px] md:h-[340px] xl:w-[280px] xl:h-[360px] rounded-[16px] md:rounded-[20px] overflow-hidden bg-sage-light">
